@@ -93,9 +93,7 @@ async function pinOnCrust(chainAddr, ipfsGateway, cid, seeds) {
         }).finally(() => {
             chain.disconnect();
         });
-    }).catch(e => {
-        reject(e);
-    })
+    });
 }
 
 /* PRIVATE METHODS  */

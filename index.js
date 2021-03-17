@@ -15,14 +15,13 @@ try {
     }
 
     // 3. Send place storage order to chain
-    pinOnCrust(chainAddr, ipfsGateway, cid, seeds)
-    .then(res => {
+    const asyncPin = async () => {
+        const res = await pinOnCrust(chainAddr, ipfsGateway, cid, seeds);
         console.log(`res: ${res}`);
         core.setOutput('res', res);
-    })
-    .catch(e => {
-        throw new Error(e.message);
-    });
+    }
+    
+    asyncPin();
 } catch (error) {
     core.setFailed(error.message);
 }
