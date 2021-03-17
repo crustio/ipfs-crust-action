@@ -24,7 +24,6 @@
   "homepage": "https://github.com/crustio/ipfs-crust-action#readme",
   "dependencies": {
     "@actions/core": "^1.2.6",
-    "@actions/github": "^4.0.0",
     "@crustio/type-definitions": "^0.0.5",
     "@polkadot/api": "^4.1.1",
     "@vercel/ncc": "^0.27.0",
