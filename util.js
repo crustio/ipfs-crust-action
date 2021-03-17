@@ -69,7 +69,6 @@ async function pinOnCrust(chainAddr, ipfsGateway, cid, seeds) {
                 status.isUsurped ||
                 status.isRetracted
             ) {
-                chain.disconnect();
                 reject(new Error('Invalid transaction'));
             } else {
                 // Pass it
@@ -80,11 +79,9 @@ async function pinOnCrust(chainAddr, ipfsGateway, cid, seeds) {
                 if (section === 'system' && method === 'ExtrinsicFailed') {
                     // Error with no detail, just return error
                     console.error(`  ↪ ❌  Send transaction(${tx.type}) failed.`);
-                    chain.disconnect();
                     resolve(false);
                 } else if (method === 'ExtrinsicSuccess') {
                     console.log(`  ↪ ✅  Send transaction(${tx.toHex()}) success.`);
-                    chain.disconnect();
                     resolve(true);
                 }
                 });
@@ -92,8 +89,9 @@ async function pinOnCrust(chainAddr, ipfsGateway, cid, seeds) {
                 // Pass it
             }
         }).catch(e => {
-            chain.disconnect();
             reject(e);
+        }).finally(() => {
+            chain.disconnect();
         });
     });
 }
