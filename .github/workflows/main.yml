@@ -12,5 +12,5 @@ jobs:
         with:
           cid: QmevJf2rdNibZCGrgeyVJEM82y5DsXgMDHXM6zBtQ6G4Vj
           seeds: ${{ secrets.CRUST_SEEDS }}
-      - name: Printout res
+      - name: Print res
         run: echo "Pin ${{ steps.pin.outputs.res }}"
