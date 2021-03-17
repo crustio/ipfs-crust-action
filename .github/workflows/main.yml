@@ -1,0 +1,16 @@
+on: [push]
+
+jobs:
+  test_job:
+    runs-on: ubuntu-latest
+    name: Testing on Crust Pin
+    steps:
+      - uses: actions/checkout@v2.1.0
+      - name: Crust IPFS pin action
+        id: pin
+        uses: crustio/ipfs-crust-action@v1.0.0
+        with:
+          cid: QmevJf2rdNibZCGrgeyVJEM82y5DsXgMDHXM6zBtQ6G4Vj
+          seeds: ${{ secrets.CRUST_SEEDS }}
+      - name: Printout res
+        run: echo "Pin ${{ steps.pin.outputs.res }}"
