@@ -1,0 +1,29 @@
+name: 'Crust IPFS Pin'
+description: 'Pin to Crust IPFS Network'
+author: 'crust'
+branding:
+  icon: 'upload-cloud'
+  color: 'orange'
+
+inputs:
+  cid:
+    description: 'IPFS cid which should be provided to Crust'
+    required: true
+  seeds:
+    description: 'Crust secret seeds(12 words)'
+    required: true
+  crust-endpoint:
+    description: 'Crust Chain websocket endpoint'
+    required: false
+    default: 'wss://api.crust.network'
+  ipfs-gateway:
+    description: 'IPFS public gateway provides api/ function'
+    required: false
+    default: 'https://ipfs.io'
+outputs:
+  res:
+    description: 'Pin on Crust success or not'
+
+runs:
+  using: 'node14'
+  main: 'index.js'
