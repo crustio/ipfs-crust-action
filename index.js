@@ -17,6 +17,7 @@ try {
     // 3. Send place storage order to chain
     pinOnCrust(chainAddr, ipfsGateway, cid, seeds)
     .then(res => {
+        console.log(`res: ${res}`);
         core.setOutput('res', res);
     })
     .catch(e => {
