@@ -1,0 +1,33 @@
+{
+  "name": "ipfs-crust-action",
+  "version": "1.0.0",
+  "description": "Pin your site to Crust IPFS Network from Github Action",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "ncc build index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crustio/ipfs-crust-action.git"
+  },
+  "keywords": [
+    "crust",
+    "ipfs",
+    "github action"
+  ],
+  "author": "ZikunFan(kun@crust.network)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/crustio/ipfs-crust-action/issues"
+  },
+  "homepage": "https://github.com/crustio/ipfs-crust-action#readme",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0",
+    "@crustio/type-definitions": "^0.0.5",
+    "@polkadot/api": "^4.1.1",
+    "@vercel/ncc": "^0.27.0",
+    "axios": "^0.21.1"
+  }
+}
