@@ -1,6 +1,6 @@
 # Crust IPFS pin action
 
-Pin your site to Crust IPFS Network from Github Action
+Decentralized pin your site to Crust IPFS Network from Github Action
 
 ## Inputs
 

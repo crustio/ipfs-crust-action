@@ -1,5 +1,5 @@
 name: 'Crust IPFS Pin'
-description: 'Pin to Crust IPFS Network'
+description: 'Decentralized pin to Crust IPFS Network'
 author: 'crust'
 branding:
   icon: 'upload-cloud'

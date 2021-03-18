@@ -1,7 +1,7 @@
 {
   "name": "ipfs-crust-action",
-  "version": "1.0.0",
-  "description": "Pin your site to Crust IPFS Network from Github Action",
+  "version": "1.0.7",
+  "description": "Decentralized pin your site to Crust IPFS Network from Github Action",
   "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
