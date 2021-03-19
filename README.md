@@ -12,6 +12,11 @@ Decentralized pin your site to Crust IPFS Network from Github Action
 
 ### `seeds`
 
+> Seeds is the private key of Crust Maxwell Account, you can:
+> 1. Apply yourself by refering this [doc](https://wiki.crust.network/docs/en/crustAccount)
+> 2. Connect Crust Team to get free seeds by emailing [hi@crust.network](hi@crust.network)
+> 3. Join Crust [Discord Channel](https://discord.gg/D97GGQndmx)
+
 **Required**, Crust secret seeds, consist of 12 words.
 
 ### `crust-endpoint`
