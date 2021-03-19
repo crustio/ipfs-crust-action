@@ -68,15 +68,6 @@ async function sendTx(tx, seeds) {
     });
 }
 
-/**
- * Parse any object to JSON object
- * @param {Object} o any type 
- * @returns JSONObject
- */
- function parseObj(o) {
-    return JSON.parse(JSON.stringify(o));
-}
-
 /* PRIVATE METHODS  */
 /**
  * Load keyring pair with seeds
@@ -95,5 +86,4 @@ module.exports = {
     checkCid,
     checkSeeds,
     sendTx,
-    parseObj,
 }

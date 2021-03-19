@@ -1,8 +1,7 @@
 const core = require('@actions/core');
-const axios = require('axios');
 const { ApiPromise, WsProvider } = require('@polkadot/api');
 const { typesBundleForPolkadot, types } = require('@crustio/type-definitions');
-const { checkCid, checkSeeds, sendTx, parseObj } = require('./util');
+const { checkCid, checkSeeds, sendTx } = require('./util');
 
 async function main() {
     // 1. Get all inputs
@@ -23,16 +22,17 @@ async function main() {
     });
     await chain.isReadyOrError;
 
-    // 4. Get file size
-    const ipfs = axios.create({
-        baseURL: ipfsGateway + '/api/v0',
-        timeout: 60 * 1000, // 1 min
-        headers: {'Content-Type': 'application/json'},
-    });
-    const res = await ipfs.post(`/object/stat?arg=${cid}`);
-    const objInfo = parseObj(res.data);
-    const size = objInfo.CumulativeSize;
-    console.log(`Got IPFS object size: ${size}`);
+    // 4. Get file size by hard code instead of requsting ipfs.gateway(leads timeout)
+    // const ipfs = axios.create({
+    //     baseURL: ipfsGateway + '/api/v0',
+    //     timeout: 60 * 1000, // 1 min
+    //     headers: {'Content-Type': 'application/json'},
+    // });
+    // const res = await ipfs.post(`/object/stat?arg=${cid}`);
+    // const objInfo = parseObj(res.data);
+    // const size = objInfo.CumulativeSize;
+    const size = 200 * 1024 * 1024; // 200 MB
+    // console.log(`Got IPFS object size: ${size}`);
 
     // 5. Construct tx
     const tx = chain.tx.market.placeStorageOrder(cid, size, 0);
