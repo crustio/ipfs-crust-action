@@ -14,14 +14,13 @@ Decentralized pin your site to Crust IPFS Network from Github Action
 
 > Seeds is the private key of Crust Maxwell Account, you can:
 > 1. Apply yourself by refering this [doc](https://wiki.crust.network/docs/en/crustAccount)
-> 2. Connect Crust Team to get free seeds by emailing <hi@crust.network>
-> 3. Join Crust [Discord Channel](https://discord.gg/D97GGQndmx)
+> 2. Join Crust [Discord Channel](https://discord.gg/D97GGQndmx)
 
-**Required**, Crust secret seeds, consist of 12 words.
+**Required**, Crust secret seeds, consist of 12 words. And you need to make sure you have CRUs in your account to send the transaction.
 
 ### `crust-endpoint`
 
-*Optional*, Crust websockt endpoint. Default `'wss://api.crust.network'`.
+*Optional*, Crust websockt endpoint. Default `'wss://rpc.crust.network'`.
 
 ### `ipfs-gateway`
 
@@ -36,7 +35,7 @@ Decentralized pin your site to Crust IPFS Network from Github Action
 ## Example usage
 
 ```yaml
-uses: crustio/ipfs-crust-action@v1.0.8
+uses: crustio/ipfs-crust-action@v2.0.0
 with:
   cid: QmevJf2rdNibZCGrgeyVJEM82y5DsXgMDHXM6zBtQ6G4Vj
   seeds: ${{ secrets.CRUST_SEEDS }}

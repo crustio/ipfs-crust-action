@@ -15,7 +15,7 @@ inputs:
   crust-endpoint:
     description: 'Crust Chain websocket endpoint'
     required: false
-    default: 'wss://api.crust.network'
+    default: 'wss://rpc.crust.network'
   ipfs-gateway:
     description: 'IPFS public gateway provides api/ function'
     required: false
