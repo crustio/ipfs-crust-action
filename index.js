@@ -35,7 +35,7 @@ async function main() {
     // console.log(`Got IPFS object size: ${size}`);
 
     // 5. Construct tx
-    const tx = chain.tx.market.placeStorageOrder(cid, size, 0);
+    const tx = chain.tx.market.placeStorageOrder(cid, size, 0, '');
 
     // 6. Send tx and disconnect chain
     const txRes = await sendTx(tx, seeds);
