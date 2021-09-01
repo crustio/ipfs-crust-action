@@ -1,6 +1,6 @@
 {
   "name": "ipfs-crust-action",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Decentralized pin your site to Crust IPFS Network from Github Action",
   "main": "dist/index.js",
   "scripts": {
@@ -24,7 +24,7 @@
   "homepage": "https://github.com/crustio/ipfs-crust-action#readme",
   "dependencies": {
     "@actions/core": "^1.2.6",
-    "@crustio/type-definitions": "^0.0.5",
+    "@crustio/type-definitions": "^1.2.0",
     "@polkadot/api": "^4.1.1",
     "@vercel/ncc": "^0.27.0"
   }

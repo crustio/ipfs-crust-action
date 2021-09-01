@@ -616,9 +616,99 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.default = {
     rpc: {},
     types: {
+        AccountInfo: 'AccountInfoWithProviders',
         Address: 'AccountId',
         AddressInfo: 'Vec<u8>',
         LookupSource: 'AccountId',
+    },
+};
+
+
+/***/ }),
+
+/***/ 9333:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.default = {
+    rpc: {},
+    types: {
+        EraBenefits: {
+            total_fee_reduction_quota: 'Compact<Balance>',
+            total_market_active_funds: 'Compact<Balance>',
+            used_fee_reduction_quota: 'Compact<Balance>',
+            active_era: 'Compact<EraIndex>',
+        },
+        FundsType: {
+            _enum: ['SWORK', 'MARKET'],
+        },
+        FundsUnlockChunk: {
+            value: 'Compact<Balance>',
+            era: 'Compact<EraIndex>',
+        },
+        MarketBenefit: {
+            /// It's total funds value
+            total_funds: 'Compact<Balance>',
+            /// It's own active funds value
+            active_funds: 'Compact<Balance>',
+            /// The used reduction for fee
+            used_fee_reduction_quota: 'Compact<Balance>',
+            /// The file reward for market
+            file_reward: 'Compact<Balance>',
+            /// The latest refreshed active era index
+            refreshed_at: 'Compact<EraIndex>',
+            /// Any balance that is becoming free
+            unlocking_funds: 'Vec<FundsUnlockChunk<Balance>>',
+        },
+        SworkBenefit: {
+            /// It's total funds value
+            total_funds: 'Compact<Balance>',
+            /// It's own active funds value
+            active_funds: 'Compact<Balance>',
+            /// The total reduction count for report works
+            total_fee_reduction_count: 'u32',
+            /// The used reduction count for report works
+            used_fee_reduction_count: 'u32',
+            /// The latest refreshed active era index
+            refreshed_at: 'Compact<EraIndex>',
+            /// Any balance that is becoming free
+            unlocking_funds: 'Vec<FundsUnlockChunk<Balance>>',
+        },
+    },
+};
+
+
+/***/ }),
+
+/***/ 93066:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.default = {
+    rpc: {},
+    types: {
+        BridgeChainId: 'u8',
+        ChainId: 'u8',
+        ResourceId: 'H256',
+        DepositNonce: 'u64',
+        ProposalStatus: {
+            _enum: ['Initiated', 'Approved', 'Rejected'],
+        },
+        ProposalVotes: {
+            votes_for: 'Vec<AccountId>',
+            votes_against: 'Vec<AccountId>',
+            status: 'ProposalStatus',
+            expiry: 'BlockNumber',
+        },
+        Erc721Token: {
+            id: 'TokenId',
+            metadata: 'Vec<u8>',
+        },
+        TokenId: 'U256',
     },
 };
 
@@ -652,17 +742,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.typesBundleForPolkadot = exports.typesAlias = exports.rpc = exports.types = exports.crustTypes = void 0;
-const utils_1 = __nccwpck_require__(36406);
-const staking_1 = __importDefault(__nccwpck_require__(404));
-const claims_1 = __importDefault(__nccwpck_require__(11978));
-const market_1 = __importDefault(__nccwpck_require__(62812));
-const swork_1 = __importDefault(__nccwpck_require__(99747));
 const base_1 = __importDefault(__nccwpck_require__(39133));
+const benefit_1 = __importDefault(__nccwpck_require__(9333));
+const bridge_1 = __importDefault(__nccwpck_require__(93066));
+const claims_1 = __importDefault(__nccwpck_require__(11978));
+const utils_1 = __nccwpck_require__(36406);
+const locks_1 = __importDefault(__nccwpck_require__(18234));
+const market_1 = __importDefault(__nccwpck_require__(62812));
+const staking_1 = __importDefault(__nccwpck_require__(404));
+const swork_1 = __importDefault(__nccwpck_require__(99747));
 exports.crustTypes = {
     base: base_1.default,
-    staking: staking_1.default,
+    benefit: benefit_1.default,
+    bridge: bridge_1.default,
     claims: claims_1.default,
+    locks: locks_1.default,
     market: market_1.default,
+    staking: staking_1.default,
     swork: swork_1.default,
 };
 exports.types = Object.assign({}, utils_1.typesFromDefs(exports.crustTypes));
@@ -688,6 +784,30 @@ exports.typesBundleForPolkadot = {
 
 /***/ }),
 
+/***/ 18234:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.default = {
+    rpc: {},
+    types: {
+        Lock: {
+            total: 'Compact<Balance>',
+            last_unlock_at: 'BlockNumber',
+            lock_type: 'LockType',
+        },
+        LockType: {
+            delay: 'BlockNumber',
+            lock_period: 'u32',
+        },
+    },
+};
+
+
+/***/ }),
+
 /***/ 62812:
 /***/ ((__unused_webpack_module, exports) => {
 
@@ -699,33 +819,20 @@ exports.default = {
     types: {
         FileInfo: {
             file_size: 'u64',
-            expired_on: 'BlockNumber',
+            spower: 'u64',
+            expired_at: 'BlockNumber',
             calculated_at: 'BlockNumber',
-            amount: 'Balance',
-            prepaid: 'Balance',
+            amount: 'Compact<Balance>',
+            prepaid: 'Compact<Balance>',
             reported_replica_count: 'u32',
             replicas: 'Vec<Replica<AccountId>>',
-        },
-        UsedInfo: {
-            used_size: 'u64',
-            reported_group_count: 'u32',
-            groups: 'BTreeMap<SworkerAnchor, bool>',
-        },
-        Status: {
-            _enum: ['Free', 'Reserved'],
         },
         Replica: {
             who: 'AccountId',
             valid_at: 'BlockNumber',
             anchor: 'SworkerAnchor',
             is_reported: 'bool',
-        },
-        Releases: {
-            _enum: ['V1_0_0', 'V2_0_0'],
-        },
-        MerchantLedger: {
-            reward: 'Balance',
-            collateral: 'Balance',
+            created_at: 'Option<BlockNumber>',
         },
     },
 };
@@ -748,6 +855,9 @@ exports.default = {
             submitted_in: 'EraIndex',
             suppressed: 'bool',
         },
+        ValidatorPrefs: {
+            guarantee_fee: 'Compact<Perbill>',
+        },
     },
 };
 
@@ -763,6 +873,10 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.default = {
     rpc: {},
     types: {
+        Group: {
+            members: 'BTreeSet<AccountId>',
+            allowlist: 'BTreeSet<AccountId>',
+        },
         IASSig: 'Vec<u8>',
         Identity: {
             anchor: 'SworkerAnchor',
@@ -783,7 +897,7 @@ exports.default = {
         SworkerSignature: 'Vec<u8>',
         WorkReport: {
             report_slot: 'u64',
-            used: 'u64',
+            spower: 'u64',
             free: 'u64',
             reported_files_size: 'u64',
             reported_srd_root: 'MerkleRoot',
