@@ -42,7 +42,7 @@ async function main() {
     // console.log(`Got IPFS object size: ${size}`);
 
     // 5. Construct tx
-    const tx = chain.tx.market.placeStorageOrder(cid, size, 0);
+    const tx = chain.tx.market.placeStorageOrder(cid, size, 0, '');
 
     // 6. Send tx and disconnect chain
     const txRes = await sendTx(tx, seeds);
@@ -5705,7 +5705,7 @@ module.exports = { mask, unmask };
 
 
 try {
-  module.exports = require(__nccwpck_require__.ab + "prebuilds/darwin-x64/node.napi1.node");
+  module.exports = require(__nccwpck_require__.ab + "prebuilds/darwin-x64/node.napi.node");
 } catch (e) {
   module.exports = __nccwpck_require__(57218);
 }
@@ -30504,7 +30504,7 @@ module.exports = isValidUTF8;
 
 
 try {
-  module.exports = require(__nccwpck_require__.ab + "prebuilds/darwin-x64/node.napi.node");
+  module.exports = require(__nccwpck_require__.ab + "prebuilds/darwin-x64/node.napi1.node");
 } catch (e) {
   module.exports = __nccwpck_require__(92534);
 }
