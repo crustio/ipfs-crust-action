@@ -20,7 +20,7 @@ Decentralized pin your site to Crust IPFS Network from Github Action
 
 ### `crust-endpoint`
 
-*Optional*, Crust websockt endpoint. Default `'wss://rpc.crust.network'`.
+*Optional*, Crust websocket endpoint. Default `'wss://rpc.crust.network'`.
 
 ### `ipfs-gateway`
 
