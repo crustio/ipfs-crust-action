@@ -31,7 +31,7 @@ async function main() {
     // const res = await ipfs.post(`/object/stat?arg=${cid}`);
     // const objInfo = parseObj(res.data);
     // const size = objInfo.CumulativeSize;
-    const size = 200 * 1024 * 1024; // 200 MB
+    const size = core.getInput('size');
     // console.log(`Got IPFS object size: ${size}`);
 
     // 5. Construct tx

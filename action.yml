@@ -9,6 +9,10 @@ inputs:
   cid:
     description: 'IPFS cid which should be provided to Crust'
     required: true
+  size:
+    description: 'IPFS size which should be provided to Crust'
+    required: false
+    default: 209715200
   seeds:
     description: 'Crust secret seeds(12 words)'
     required: true
