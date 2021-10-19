@@ -18,6 +18,10 @@ Decentralized pin your site to Crust IPFS Network from Github Action
 
 **Required**, Crust secret seeds, consist of 12 words. And you need to make sure you have CRUs in your account to send the transaction.
 
+### `size`
+
+*Optional*, The cumulative size value from IPFS. Default `209715200 (200MB)`.
+
 ### `crust-endpoint`
 
 *Optional*, Crust websockt endpoint. Default `'wss://rpc.crust.network'`.
