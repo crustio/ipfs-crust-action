@@ -1,6 +1,6 @@
 {
   "name": "ipfs-crust-action",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Decentralized pin your site to Crust IPFS Network from Github Action",
   "main": "dist/index.js",
   "scripts": {
