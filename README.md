@@ -6,8 +6,6 @@ Decentralized pin your site to Crust IPFS Network from Github Action
 
 ### `cid`
 
-> Currently, we only support CIDv0 format.
-
 **Required** The cid value from IPFS.
 
 ### `seeds`
