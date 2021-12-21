@@ -1,7 +1,7 @@
 const core = require('@actions/core');
 const { ApiPromise, WsProvider } = require('@polkadot/api');
 const { typesBundleForPolkadot, types } = require('@crustio/type-definitions');
-const { checkCid, checkSeeds, sendTx } = require('./util');
+const { checkSeeds, sendTx } = require('./util');
 
 async function main() {
     // 1. Get all inputs
