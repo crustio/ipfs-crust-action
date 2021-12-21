@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.1.0
       - name: Crust IPFS pin action(V0)
-        id: pin
+        id: pinv0
         uses: crustio/ipfs-crust-action@v2.0.5
         with:
           cid: QmevJf2rdNibZCGrgeyVJEM82y5DsXgMDHXM6zBtQ6G4Vj
@@ -18,7 +18,7 @@ jobs:
       - name: Print res(V0)
         run: echo "Pin ${{ steps.pin.outputs.res }} success!"
       - name: Crust IPFS pin action(V1)
-        id: pin
+        id: pinv1
         uses: crustio/ipfs-crust-action@v2.0.5
         with:
           cid: bafkreif7ne6whduuin6jlbyidltiiwwuemlsdes446dgh7xrafulxvgibq
