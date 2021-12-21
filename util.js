@@ -2,12 +2,12 @@ const { Keyring } = require('@polkadot/keyring');
 
 /* PUBLIC METHODS */
 /**
- * Check CIDv0 legality
- * @param {string} cid 
+ * Check seeds(12 words) legality
+ * @param {string} seeds 
  * @returns boolean
  */
-function checkCid(cid) {
-    return cid.length === 46 && cid.substr(0, 2) === 'Qm';
+function checkSeeds(seeds) {
+    return seeds.split(' ').length === 12;
 }
 
 /**

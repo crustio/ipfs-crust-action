@@ -8,7 +8,7 @@ module.exports =
 const core = __nccwpck_require__(42186);
 const { ApiPromise, WsProvider } = __nccwpck_require__(21049);
 const { typesBundleForPolkadot, types } = __nccwpck_require__(8190);
-const { checkCid, checkSeeds, sendTx } = __nccwpck_require__(44962);
+const { checkSeeds, sendTx } = __nccwpck_require__(44962);
 
 async function main() {
     // 1. Get all inputs
@@ -34727,12 +34727,12 @@ const { Keyring } = __nccwpck_require__(70527);
 
 /* PUBLIC METHODS */
 /**
- * Check CIDv0 legality
- * @param {string} cid 
+ * Check seeds(12 words) legality
+ * @param {string} seeds 
  * @returns boolean
  */
-function checkCid(cid) {
-    return cid.length === 46 && cid.substr(0, 2) === 'Qm';
+function checkSeeds(seeds) {
+    return seeds.split(' ').length === 12;
 }
 
 /**
