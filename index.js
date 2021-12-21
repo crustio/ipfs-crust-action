@@ -5,13 +5,13 @@ const { checkCid, checkSeeds, sendTx } = require('./util');
 
 async function main() {
     // 1. Get all inputs
-    const cid = core.getInput('cid'); // Currently, we only support CIDv0
+    const cid = core.getInput('cid');
     const seeds = core.getInput('seeds');
     const chainAddr = core.getInput('crust-endpoint');
     const ipfsGateway = core.getInput('ipfs-gateway');
 
     // 2. Check cid and seeds
-    if (!checkCid(cid) || !checkSeeds(seeds)) {
+    if (!checkSeeds(seeds)) {
         throw new Error('Illegal inputs');
     }
 

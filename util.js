@@ -11,15 +11,6 @@ function checkCid(cid) {
 }
 
 /**
- * Check seeds(12 words) legality
- * @param {string} seeds 
- * @returns boolean
- */
-function checkSeeds(seeds) {
-    return seeds.split(' ').length === 12;
-}
-
-/**
  * Send tx to Crust Network
  * @param {import('@polkadot/api/types').SubmittableExtrinsic} tx
  * @param {string} seeds 12 secret words 
@@ -83,7 +74,6 @@ async function sendTx(tx, seeds) {
 }
 
 module.exports = {
-    checkCid,
     checkSeeds,
     sendTx,
 }
