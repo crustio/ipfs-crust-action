@@ -9,11 +9,19 @@ jobs:
     name: Testing on Crust Pin
     steps:
       - uses: actions/checkout@v2.1.0
-      - name: Crust IPFS pin action
+      - name: Crust IPFS pin action(V0)
         id: pin
-        uses: crustio/ipfs-crust-action@v2.0.4
+        uses: crustio/ipfs-crust-action@v2.0.5
         with:
           cid: QmevJf2rdNibZCGrgeyVJEM82y5DsXgMDHXM6zBtQ6G4Vj
           seeds: ${{ secrets.CRUST_SEEDS }}
-      - name: Print res
-        run: echo "Pin ${{ steps.pin.outputs.res }}"
+      - name: Print res(V0)
+        run: echo "Pin ${{ steps.pin.outputs.res }} success!"
+      - name: Crust IPFS pin action(V1)
+        id: pin
+        uses: crustio/ipfs-crust-action@v2.0.5
+        with:
+          cid: bafkreif7ne6whduuin6jlbyidltiiwwuemlsdes446dgh7xrafulxvgibq
+          seeds: ${{ secrets.CRUST_SEEDS }}
+      - name: Print res(V1)
+        run: echo "Pin ${{ steps.pin.outputs.res }} success!"

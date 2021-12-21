@@ -1,6 +1,6 @@
 # Crust IPFS pin action
 
-Decentralized pin your site to Crust IPFS Network from Github Action
+Decentralized pin your site to Crust IPFS Network with Github Action
 
 ## Inputs
 
@@ -10,9 +10,9 @@ Decentralized pin your site to Crust IPFS Network from Github Action
 
 ### `seeds`
 
-> Seeds is the private key of Crust Maxwell Account, you can:
+> Seeds is the private key of Crust Account, you can:
 > 1. Apply yourself by refering this [doc](https://wiki.crust.network/docs/en/crustAccount)
-> 2. Join Crust [Discord Channel](https://discord.gg/D97GGQndmx)
+> 2. Then, join Crust [Discord Channel](https://discord.gg/D97GGQndmx) and can get free storage quota on `📦 free-storage` channel
 
 **Required**, Crust secret seeds, consist of 12 words. And you need to make sure you have CRUs in your account to send the transaction.
 
@@ -37,10 +37,9 @@ Decentralized pin your site to Crust IPFS Network from Github Action
 ## Example usage
 
 ```yaml
-uses: crustio/ipfs-crust-action@v2.0.4
+uses: crustio/ipfs-crust-action@v2.0.5
 with:
   cid: QmevJf2rdNibZCGrgeyVJEM82y5DsXgMDHXM6zBtQ6G4Vj
-  size: 10034432
   seeds: ${{ secrets.CRUST_SEEDS }}
 ```
 
