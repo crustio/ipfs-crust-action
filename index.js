@@ -1,14 +1,13 @@
-const core = require('@actions/core');
-const { ApiPromise, WsProvider } = require('@polkadot/api');
-const { typesBundleForPolkadot, types } = require('@crustio/type-definitions');
-const { checkSeeds, sendTx } = require('./util');
+import core from '@actions/core';
+import { ApiPromise, WsProvider } from '@polkadot/api';
+import { typesBundleForPolkadot } from '@crustio/type-definitions';
+import { checkSeeds, sendTx } from './util';
 
 async function main() {
     // 1. Get all inputs
     const cid = core.getInput('cid');
     const seeds = core.getInput('seeds');
     const chainAddr = core.getInput('crust-endpoint');
-    const ipfsGateway = core.getInput('ipfs-gateway');
 
     // 2. Check cid and seeds
     if (!checkSeeds(seeds)) {
@@ -20,17 +19,8 @@ async function main() {
         provider: new WsProvider(chainAddr),
         typesBundle: typesBundleForPolkadot
     });
-    await chain.isReadyOrError;
+    await chain.isReady;
 
-    // 4. Get file size by hard code instead of requsting ipfs.gateway(leads timeout)
-    // const ipfs = axios.create({
-    //     baseURL: ipfsGateway + '/api/v0',
-    //     timeout: 60 * 1000, // 1 min
-    //     headers: {'Content-Type': 'application/json'},
-    // });
-    // const res = await ipfs.post(`/object/stat?arg=${cid}`);
-    // const objInfo = parseObj(res.data);
-    // const size = objInfo.CumulativeSize;
     const size = core.getInput('size');
     // console.log(`Got IPFS object size: ${size}`);
 

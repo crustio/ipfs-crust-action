@@ -24,10 +24,6 @@ Decentralized pin your site to Crust IPFS Network with Github Action
 
 *Optional*, Crust websocket endpoint. Default `'wss://rpc.crust.network'`.
 
-### `ipfs-gateway`
-
-*Optional*, IPFS public gateway which opens `/api` function. Default `'https://ipfs.io'`.
-
 ## Outputs
 
 ### `res`
