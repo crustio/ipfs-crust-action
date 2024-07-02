@@ -1,7 +1,7 @@
-import core from '@actions/core';
-import { ApiPromise, WsProvider } from '@polkadot/api';
-import { typesBundleForPolkadot } from '@crustio/type-definitions';
-import { checkSeeds, sendTx } from './util';
+const core = require('@actions/core');
+const { ApiPromise, WsProvider } = require ('@polkadot/api');
+const { typesBundleForPolkadot } = require( '@crustio/type-definitions');
+const { checkSeeds, sendTx } = require('./util');
 
 async function main() {
     // 1. Get all inputs

@@ -1,4 +1,4 @@
-import { Keyring } from "@polkadot/keyring";
+const { Keyring } =  require("@polkadot/keyring");
 
 /* PUBLIC METHODS */
 /**
